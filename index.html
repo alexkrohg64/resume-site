@@ -32,6 +32,19 @@
   * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+  <script>
+    function getLambdaResponse() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("lambda-response").innerHTML = this.responseText;
+        }
+      };
+      xhttp.open("GET", "https://0x664cuy9l.execute-api.us-east-1.amazonaws.com/resume-hello", true);
+      xhttp.send();
+    }
+  </script>
 </head>
 
 <body>
@@ -225,9 +238,10 @@
             <p class="description">Public coding projects showcase java, python, and this website: <a href="https://github.com/alexkrohg64">GitHub</a></p>
           </div>
           <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><a href=""><i class="bi bi-broadcast-pin"></i></a></div>
-            <h4 class="title"><a href="">Hello, Lambda</a></h4>
+            <div class="icon"><a onclick="getLambdaResponse()" href="javascript:void(0);"><i class="bi bi-broadcast-pin"></i></a></div>
+            <h4 class="title"><a onclick="getLambdaResponse()" href="javascript:void(0);">Hello, Lambda</a></h4>
             <p class="description">Click the icon to dynamically display a greeting from AWS Lambda:</p>
+            <p id="lambda-response" class="description"></p>
           </div>
         </div>
 
